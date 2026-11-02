@@ -127,7 +127,8 @@
 
                 // ✅ 修正：正则表达式不带引号
                 text = text.replace(/<[^>]*>/g, "")
-                let m = text.match(/[\u4e00-\u9fa5a-zA-Z0-9，、。—=,]+/g);
+                text = text.replace(/&[a-zA-Z]+;/g, '');
+                let m = text.match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
 
                 if (!m) {
                     console.log("未提取到中文关键词");
@@ -168,7 +169,8 @@
                         if (!choice_input || !choice_text) continue;
 
                         for (let m = 0; m < q_a.answer.length; m++) {
-                            let text_list = choice_text.textContent.trim().match(/[\u4e00-\u9fa5a-zA-Z0-9]+/);
+
+                            let text_list = choice_text.textContent.trim().replace(/&[a-zA-Z]+;/g, '').match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
                             if (!text_list) continue;
                             console.log(`text_list-单选-${text_list}`)
                             console.log(`q_a.answer[m].trim()-单选-:${q_a.answer[m].trim()}`)
@@ -255,7 +257,7 @@
                         if (!choice_input || !choice_text) continue;
 
                         for (let m = 0; m < q_a.answer.length; m++) {
-                            let text_list = choice_text.textContent.trim().match(/[\u4e00-\u9fa5a-zA-Z0-9]+/);
+                            let text_list = choice_text.textContent.trim().replace(/&[a-zA-Z]+;/g, '').match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
                             console.log(`q_a.answer[m].trim()-多选-:${q_a.answer[m].trim()}`)
                             for (let x = 0; x < text_list.length; x++) {
                                 console.log(`choice_text.textContent.trim():${text_list[x]}`)
@@ -428,7 +430,8 @@
         function get_chinese(text) {
             // console.log(text)
             text = text.replace(/<[^>]*>/g, "")
-            let m = text.match(/[\u4e00-\u9fa5a-zA-Z0-9，—=,]+/g);
+            text = text.replace(/&[a-zA-Z]+;/g, '')
+            let m = text.match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
             if (!m) {
                 console.log("未提取到中文关键词");
             }
@@ -824,7 +827,8 @@
         function spoc_get_chinese(text) {
             // console.log(text)
             text = text.replace(/<[^>]*>/g, "")
-            let m = text.match(/[\u4e00-\u9fa5a-zA-Z0-9，（）、—=,。’‘“”《》]+/g);
+            text = text.replace(/&[a-zA-Z]+;/g, '');
+            let m = text.match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
             if (!m) {
                 console.log("未提取到中文关键词");
             }
@@ -1267,6 +1271,9 @@
             is_video_ans_pd.addEventListener('change', function () {
                 localStorage.setItem('isVideoAns', this.checked);
                 console.log('已保存状态:', this.checked);
+                if(this.checked){
+                    alert("这个功能需要刷新页面才能生效")
+                }
             });
             is_video_ans_pd.style.cssText = `
     width: 16px;
