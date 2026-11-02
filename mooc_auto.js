@@ -1,14 +1,16 @@
 // ==UserScript==
 // @name         mooc答题单元测试和课后小测试_3.0
 // @namespace    http://tampermonkey.net/
-// @version      2026-10-26
-// @description  try to take over the world!
+// @version      3.0.0
+// @description  慕课答题脚本（单元测试和课后小测试）
 // @author       068
 // @match        *://www.icourse163.org/learn/HPU-*
 // @match        *://www.icourse163.org/mooc/learn/HPU-*
 // @match        *://www.icourse163.org/spoc/learn/HPU-*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=icourse163.org
 // @grant        none
+// @downloadURL  https://github.com/laoliu-0/Auto_Mooc/releases/download/3.0/mooc_spoc__3.0.js
+// @updateURL    https://github.com/laoliu-0/Auto_Mooc/releases/download/3.0/mooc_spoc__3.0.js
 // ==/UserScript==
 (function () {
         'use strict';
@@ -128,7 +130,7 @@
                 // ✅ 修正：正则表达式不带引号
                 text = text.replace(/<[^>]*>/g, "")
                 text = text.replace(/&[a-zA-Z]+;/g, '');
-                let m = text.match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
+                let m = text.match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】\-—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
 
                 if (!m) {
                     console.log("未提取到中文关键词");
@@ -170,7 +172,7 @@
 
                         for (let m = 0; m < q_a.answer.length; m++) {
 
-                            let text_list = choice_text.textContent.trim().replace(/&[a-zA-Z]+;/g, '').match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
+                            let text_list = choice_text.textContent.trim().replace(/&[a-zA-Z]+;/g, '').match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】\-—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
                             if (!text_list) continue;
                             console.log(`text_list-单选-${text_list}`)
                             console.log(`q_a.answer[m].trim()-单选-:${q_a.answer[m].trim()}`)
@@ -257,7 +259,7 @@
                         if (!choice_input || !choice_text) continue;
 
                         for (let m = 0; m < q_a.answer.length; m++) {
-                            let text_list = choice_text.textContent.trim().replace(/&[a-zA-Z]+;/g, '').match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
+                            let text_list = choice_text.textContent.trim().replace(/&[a-zA-Z]+;/g, '').match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】\-—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
                             console.log(`q_a.answer[m].trim()-多选-:${q_a.answer[m].trim()}`)
                             for (let x = 0; x < text_list.length; x++) {
                                 console.log(`choice_text.textContent.trim():${text_list[x]}`)
@@ -431,7 +433,7 @@
             // console.log(text)
             text = text.replace(/<[^>]*>/g, "")
             text = text.replace(/&[a-zA-Z]+;/g, '')
-            let m = text.match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
+            let m = text.match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】\-—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
             if (!m) {
                 console.log("未提取到中文关键词");
             }
@@ -828,7 +830,7 @@
             // console.log(text)
             text = text.replace(/<[^>]*>/g, "")
             text = text.replace(/&[a-zA-Z]+;/g, '');
-            let m = text.match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
+            let m = text.match(/[\u4e00-\u9fa5a-zA-Z0-9，。！？、；：""''（）《》【】\-—…·,.;:!?()\[\]{}ⅥⅢⅠⅡⅣⅤⅦⅧⅨⅩⅪⅫ＋－×÷＝±≤≥≠≈∞∑∏√∫πΔθλμ°′″①②③④⑤⑥⑦⑧⑨⑩]+/g);
             if (!m) {
                 console.log("未提取到中文关键词");
             }
@@ -1083,30 +1085,42 @@
             for (let i = 0; i < anchors.length; i++) {
                 let payload = anchors[i].payload
                 let answer_choice = {}
+                answer_choice.type = payload.type
                 answer_choice.ans = []
                 let startTime = anchors[i].startTime
                 answer_choice.startTime = startTime
-                let options = payload.options
-                for (let j = 0; j < options.length; j++) {
-                    if (options[j].answer) {
-                        let label = replace_text(options[j].label)
-                        answer_choice.ans.push(label)
+                if ([1, 2, 4].includes(answer_choice.type)) {
+                    let options = payload.options
+                    for (let j = 0; j < options.length; j++) {
+                        if (options[j].answer) {
+                            let label = replace_text(options[j].label)
+                            answer_choice.ans.push(label)
+                        }
                     }
+                    answer_list.push(answer_choice)
+                } else if (answer_choice.type == 3) {
+                    let stdAnswer = payload.stdAnswer;
+                    if (stdAnswer) {
+                        let s = stdAnswer.match(/^[^#]*/)[0]
+                        answer_choice.ans.push([s])
+                    }
+                    answer_list.push(answer_choice)
+
                 }
-                answer_list.push(answer_choice)
             }
             return answer_list
         }
-        function choose_answer_near(){
+
+        function choose_answer_near() {
             let ans_json = video_answer()
             let current_time = get_video_time()
-            let t_t=10000
-            let t_m=null
+            let t_t = 10000
+            let t_m = null
             for (let i = 0; i < ans_json.length; i++) {
-                let m=Math.abs(Number(current_time)-Number(ans_json[i].startTime))
-                if(t_t>m){
-                    t_m=ans_json[i]
-                    t_t=m
+                let m = Math.abs(Number(current_time) - Number(ans_json[i].startTime))
+                if (t_t > m) {
+                    t_m = ans_json[i]
+                    t_t = m
                 }
 
             }
@@ -1135,38 +1149,61 @@
 
         async function auto_video_ques() {
             let choices = document.querySelector(".mt-4")
+            console.log("正在等待视频中的题目")
             if (choices) {
                 let button = document.querySelector(".mt-7").querySelector("button")
                 let label = choices.querySelectorAll("label")
                 let input = choices.querySelectorAll("input")
                 let answer_list = choose_answer()
+                console.log(answer_list)
+                if (answer_list.type == 3) {
+                    input[0].click()
+                    await wait(1000)
+                    let nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+                        window.HTMLInputElement.prototype, 'value'
+                    ).set;
 
+                    nativeInputValueSetter.call(input[0], answer_list.ans[0]);
 
-                for (let i = 0; i < label.length; i++) {
-                    let choice_text = label[i].querySelector(".anchor-option-content").textContent
-                    for (let j = 0; j < answer_list.ans.length; j++) {
-                        choice_text = replace_text(choice_text)
-                        console.log(`answer_list.ans[j]->${answer_list.ans[j]}`)
-                        console.log(`choice_text->${choice_text}`)
+// 触发事件
+                    input[0].dispatchEvent(new Event('input', {bubbles: true}));
+                    input[0].dispatchEvent(new Event('change', {bubbles: true}));
+                    await wait(1000)
 
-                        if (answer_list.ans[j] == choice_text) {
-                            input[i].click()
-                            await wait(1000);
+                } else {
+                    for (let i = 0; i < label.length; i++) {
+                        let choice_text = label[i].querySelector(".anchor-option-content").textContent
+                        for (let j = 0; j < answer_list.ans.length; j++) {
+                            choice_text = replace_text(choice_text)
+                            console.log(`answer_list.ans[j]->${answer_list.ans[j]}`)
+                            console.log(`choice_text->${choice_text}`)
+                            if ([1, 2, 4].includes(answer_list.type)) {
+                                if (answer_list.ans[j] == choice_text) {
+                                    input[i].click()
+                                    await wait(1000);
+                                }
+                            }
                         }
-                    }
 
+                    }
                 }
-                await wait(1000)
-                button.click()
-                await wait(1000)
-                button = document.querySelector(".mt-7").querySelector("button")
-                await wait(1000)
-                button.click()
-                await wait(1000)
-                setTimeout(auto_video_ques, 5000)
-            } else {
-                setTimeout(auto_video_ques, 5000)
+
+                    await wait(1000)
+                    button.click()
+                    await wait(1000)
+                    button = document.querySelector(".mt-7").querySelector("button")
+                    await wait(1000)
+                    button.click()
+                    await wait(1000)
+                    setTimeout(auto_video_ques, 5000)
+
+
+
             }
+                        else
+                {
+                    setTimeout(auto_video_ques, 5000)
+                }
 
         }
 
@@ -1271,7 +1308,7 @@
             is_video_ans_pd.addEventListener('change', function () {
                 localStorage.setItem('isVideoAns', this.checked);
                 console.log('已保存状态:', this.checked);
-                if(this.checked){
+                if (this.checked) {
                     alert("这个功能需要刷新页面才能生效")
                 }
             });
@@ -1522,7 +1559,7 @@ transition: all 0.3s;
             hook_ing()
             patchDwr()
             setTimeout(createPanel, 1000);
-            if(localStorage.getItem('isVideoAns')=== 'true') {
+            if (localStorage.getItem('isVideoAns') === 'true') {
                 hooking()
                 setTimeout(auto_video_ques, 5000);
             }
