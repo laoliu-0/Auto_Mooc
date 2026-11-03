@@ -7,10 +7,9 @@
 // @match        *://www.icourse163.org/learn/HPU-*
 // @match        *://www.icourse163.org/mooc/learn/HPU-*
 // @match        *://www.icourse163.org/spoc/learn/HPU-*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=icourse163.org
 // @grant        none
-// @downloadURL  https://github.com/laoliu-0/Auto_Mooc/releases/download/3.0/mooc_spoc__3.0.js
-// @updateURL    https://github.com/laoliu-0/Auto_Mooc/releases/download/3.0/mooc_spoc__3.0.js
+// @downloadURL  https://raw.githubusercontent.com/laoliu-0/Auto_Mooc/main/mooc_auto.js
+// @updateURL    https://raw.githubusercontent.com/laoliu-0/Auto_Mooc/main/mooc_auto.js
 // ==/UserScript==
 (function () {
         'use strict';
