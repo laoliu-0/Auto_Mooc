@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         mooc答题单元测试和课后小测试_3.0
 // @namespace    http://tampermonkey.net/
-// @version      3.0.1
+// @version      3.0.2
 // @description  慕课答题脚本（单元测试和课后小测试）
 // @author       068
 // @match        *://www.icourse163.org/learn/HPU-*
