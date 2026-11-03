@@ -13,7 +13,7 @@
 // ==/UserScript==
 (function () {
         'use strict';
-        // 检测更新
+        // 检测更新 40.0
         let isRunning = true;
         // https://www.icourse163.org/front-mooc-learn/api/learn/content/unit-page?courseKey=HPU-1472974161&termId=1487925442&lessonId=1278434049&unitId=1320415076&entryMode=learn
         // https://www.icourse163.org/front-mooc-learn/api/learn/content/unit-page?courseKey=HPU-1472974161&termId=1487925442&lessonId=1278434049&unitId=1320415077&entryMode=learn
