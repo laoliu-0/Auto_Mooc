@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         mooc答题单元测试和课后小测试_3.0
 // @namespace    http://tampermonkey.net/
-// @version      3.0.2
+// @version      3.1
 // @description  慕课答题脚本（单元测试和课后小测试）
 // @author       068
 // @match        *://www.icourse163.org/learn/HPU-*
@@ -13,7 +13,7 @@
 // ==/UserScript==
 (function () {
         'use strict';
-        // 检测更新 40.0
+        // 检测更新 3.1
         let isRunning = true;
         // https://www.icourse163.org/front-mooc-learn/api/learn/content/unit-page?courseKey=HPU-1472974161&termId=1487925442&lessonId=1278434049&unitId=1320415076&entryMode=learn
         // https://www.icourse163.org/front-mooc-learn/api/learn/content/unit-page?courseKey=HPU-1472974161&termId=1487925442&lessonId=1278434049&unitId=1320415077&entryMode=learn
